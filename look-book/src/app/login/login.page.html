@@ -8,7 +8,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-          <img src="assets/img/login.png" alt="your image">
+        <img src="assets/img/login.png" alt="your image">
       </ion-col>
     </ion-row>
     <ion-row>
@@ -17,20 +17,22 @@
           <ion-input id="username" placeholder="Username"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input id="password" type="password" placeholder="Password"></ion-input>
+          <ion-input id="password" type="password" placeholder="Password"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col>
-          <ion-button id="loginButton" (click)="checkLogin()" expand="block" fill="solid">Login</ion-button>
-        </ion-col>
+      <ion-col>
+        <ion-button id="loginButton" (click)="checkLogin()" expand="block" fill="solid">
+            Login
+            <ion-icon name="log-in"></ion-icon>
+          </ion-button>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="ion-text-center"> 
-        <ion-button id="loginButton" (click)="signUp()" size="small" fill="outline">Sign Up!</ion-button>
+      <ion-col class="ion-text-center">
+        <ion-button size="small" fill="outline" [routerLink]="['./signup']">Sign Up!</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-

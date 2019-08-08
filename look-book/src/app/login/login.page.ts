@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
   }
 
   checkLogin() {
-    console.log('logging');
+    console.log('login');
   }
 
   signUp() {

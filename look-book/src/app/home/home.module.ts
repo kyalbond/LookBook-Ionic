@@ -9,7 +9,7 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: HomePage,
     children: [
       {
@@ -21,6 +21,11 @@ const routes: Routes = [
         loadChildren: '../profile/profile.module#ProfilePageModule'
       }
     ]
+  },
+  {
+    path: '',
+    redirectTo: 'tabs/dashboard',
+    pathMatch: 'full'
   }
 ];
 

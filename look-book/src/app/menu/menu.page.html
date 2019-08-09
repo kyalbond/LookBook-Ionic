@@ -13,7 +13,7 @@
     <ion-list>
 
       <ion-menu-toggle *ngFor="let p of pages">
-        <ion-item [routerLink]="p.url" [class.active-item]="selectedPath.startsWith(p.url)">
+        <ion-item routerDirection="root" [routerLink]="p.url" [class.active-item]="selectedPath.startsWith(p.url)">
           <ion-label>
             {{ p.title }}
           </ion-label>

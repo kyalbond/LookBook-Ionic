@@ -27,6 +27,7 @@ export class MenuPage implements OnInit {
       }
     });
 
+    router.navigate(['menu/home']);
    }
 
   ngOnInit() {

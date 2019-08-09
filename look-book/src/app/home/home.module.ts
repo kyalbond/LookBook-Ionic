@@ -14,11 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardPageModule'
+        loadChildren: '../dashboard/dashboard.module#DashboardPageModule'
       },
       {
         path: 'profile',
-        loadChildren: './profile/profile.module#ProfilePageModule'
+        loadChildren: '../profile/profile.module#ProfilePageModule'
       }
     ]
   }

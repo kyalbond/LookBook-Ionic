@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent} from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -20,17 +22,47 @@ export class MenuPage implements OnInit {
     }
   ];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public afAuth: AngularFireAuth,
+    private alertController: AlertController,
+    ) {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {
         this.selectedPath = event.url;
       }
     });
-
     router.navigate(['menu/home']);
    }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.createAlert('Logout?', 'Are you sure you want to log out?');
+  }
+
+  async createAlert(alrtHeader, alrtMessage) {
+    const alert = await this.alertController.create({
+      header: alrtHeader,
+      message: alrtMessage,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.afAuth.auth.signOut();
+            this.router.navigate(['/login']);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

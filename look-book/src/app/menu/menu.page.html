@@ -1,0 +1,35 @@
+<ion-menu contentId="content">
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-item color="primary">
+        <ion-icon name="contact"></ion-icon>
+        <ion-title>Admin</ion-title>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+
+      <ion-menu-toggle *ngFor="let p of pages">
+        <ion-item [routerLink]="p.url" [class.active-item]="selectedPath.startsWith(p.url)">
+          <ion-label>
+            {{ p.title }}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-item>
+        <ion-button routerLink="/login" fill="outline">
+          <ion-icon name="log-out"></ion-icon>
+          Logout
+        </ion-button>
+
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="content" main></ion-router-outlet>

@@ -28,8 +28,8 @@ export class LoginPage implements OnInit {
       this.createAlert('Login Failed', 'Please enter a username AND password.');
     } else if (this.username === 'admin' && this.password === 'admin') {
       // TODO: IMPLEMENT USER AUTHENTICATION
-      this.createAlert('Welcome back ' + this.username + '!', '');
-      this.router.navigate(['/home']);
+      this.createAlert('Welcome ' + this.username + '!', '');
+      this.router.navigate(['/menu']);
     } else {
       this.createAlert('Login Failed', 'No user was found with these details.');
     }

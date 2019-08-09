@@ -5,20 +5,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
+import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: MenuPage,
     children: [
       {
-        path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardPageModule'
+        path: 'home',
+        loadChildren: '../home/home.module#HomePageModule'
       },
       {
-        path: 'profile',
-        loadChildren: './profile/profile.module#ProfilePageModule'
+        path: 'settings',
+        loadChildren: '../settings/settings.module#SettingsPageModule'
       }
     ]
   }
@@ -31,6 +31,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [MenuPage]
 })
-export class HomePageModule {}
+export class MenuPageModule {}

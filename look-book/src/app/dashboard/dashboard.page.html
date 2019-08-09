@@ -6,3 +6,14 @@
         <ion-title>Dashboard</ion-title>
     </ion-toolbar>
 </ion-header>
+
+<ion-content>
+    <ion-card>
+        <img [src]="currentImage" *ngIf="currentImage">
+    </ion-card>
+    <ion-fab (click)="takePhoto()" color="secondary" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

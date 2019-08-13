@@ -5,12 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SettingsPage } from './settings.page';
+import { AccountPage } from './account.page';
+import { FirebaseUIModule } from 'firebaseui-angular';
 
 const routes: Routes = [
   {
     path: '',
-    component: SettingsPage
+    component: AccountPage
   }
 ];
 
@@ -19,8 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    FirebaseUIModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SettingsPage]
+  declarations: [AccountPage]
 })
-export class SettingsPageModule {}
+export class AccountPageModule {}

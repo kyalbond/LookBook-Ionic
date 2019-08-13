@@ -18,8 +18,8 @@ const routes: Routes = [
         loadChildren: '../home/home.module#HomePageModule'
       },
       {
-        path: 'settings',
-        loadChildren: '../settings/settings.module#SettingsPageModule'
+        path: 'account',
+        loadChildren: '../account/account.module#AccountPageModule'
       },
       {
         path: 'help',

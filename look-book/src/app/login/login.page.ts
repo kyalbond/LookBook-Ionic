@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { min } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-      this.router.navigate(['/menu']);
+    this.router.navigate(['/menu']);
   }
 
 }

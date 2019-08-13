@@ -18,7 +18,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Account Settings',
-      url: '/menu/settings'
+      url: '/menu/account'
     },
     {
       title: 'Help',
@@ -40,6 +40,9 @@ export class MenuPage implements OnInit {
    }
 
   ngOnInit() {
+    if (this.afAuth.auth.currentUser == null) {
+      this.router.navigate(['/login']);
+    }
   }
 
   logout() {
@@ -59,8 +62,8 @@ export class MenuPage implements OnInit {
         {
           text: 'Confirm',
           handler: () => {
-            this.afAuth.auth.signOut();
-            this.router.navigate(['/login']);
+              this.router.navigate(['/login']);
+
           }
         }
       ]

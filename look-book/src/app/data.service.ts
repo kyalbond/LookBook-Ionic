@@ -4,7 +4,8 @@ import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 export interface Image {
-  id?: string;
+  id: string;
+  userId: string;
   name: string;
   imageURL: string;
   date: Date;
@@ -18,7 +19,7 @@ export class DataService {
   private imageCollection: AngularFirestoreCollection<Image>;
   private likeCollection: AngularFirestoreCollection<Image>;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(public afs: AngularFirestore) {
     this.imageCollection = this.afs.collection<Image>('images', ref => {
       return ref.orderBy('date', 'desc');
     });
@@ -62,12 +63,13 @@ export class DataService {
      );
    }
 
-   addImage(image: Image): Promise<DocumentReference> {
-     return this.imageCollection.add(image);
+   addImage(image: Image): Promise<void> {
+     return this.imageCollection.doc(image.id).set(image);
    }
 
    updateImage(image: Image): Promise<void> {
-     return this.imageCollection.doc(image.id).update({ name: image.name, image: image.imageURL, date: image.date});
+     return this.imageCollection.doc(image.id)
+     .update(image);
    }
 
    deleteIdea(id: string): Promise<void> {

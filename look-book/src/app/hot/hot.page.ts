@@ -16,6 +16,7 @@ export class HotPage implements OnInit {
 
   public image: Image = {
     id: '',
+    userId: '',
     name: '',
     imageURL: '',
     date: null,

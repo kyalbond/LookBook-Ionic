@@ -16,6 +16,7 @@ export class DashboardPage implements OnInit {
 
   public image: Image = {
     id: '',
+    userId: '',
     name: '',
     imageURL: '',
     date: null,
@@ -41,12 +42,19 @@ export class DashboardPage implements OnInit {
     this.images = this.dataService.getImages();
   }
 
+  likePhoto(image: Image) {
+    image.likes ++;
+    this.dataService.updateImage(image);
+    this.showToast(image.id);
+  }
+
   takePhoto() {
     this.camera.getPicture(this.options).then((imageData) => {
-      this.image.id = this.afAuth.auth.currentUser.email;
+      this.image.userId = this.afAuth.auth.currentUser.uid;
       this.image.name = this.afAuth.auth.currentUser.displayName;
       this.image.imageURL = 'data:image/jpeg;base64,' + imageData;
       this.image.date = new Date();
+      this.image.id = this.image.userId + this.image.date;
 
       this.addImage();
     }, (err) => {

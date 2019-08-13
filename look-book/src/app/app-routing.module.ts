@@ -12,7 +12,8 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+
   ];
 
 @NgModule({

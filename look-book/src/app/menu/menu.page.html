@@ -4,7 +4,7 @@
     <ion-toolbar color="primary">
       <ion-item color="primary">
         <ion-icon name="contact"></ion-icon>
-        <ion-title>Admin</ion-title>
+        <ion-title *ngIf='afAuth.auth.currentUser'>{{afAuth.auth.currentUser.displayName}}</ion-title>
       </ion-item>
     </ion-toolbar>
   </ion-header>
@@ -20,16 +20,20 @@
         </ion-item>
       </ion-menu-toggle>
 
-      <ion-item>
-        <ion-button (click)="logout()" fill="outline">
-          <ion-icon name="log-out"></ion-icon>
-          Logout
-        </ion-button>
 
-      </ion-item>
+        <ion-item>
+          <ion-button (click)="logout()" fill="outline">
+            <ion-icon name="log-out"></ion-icon>
+            Logout
+          </ion-button>
+      
+        </ion-item>
+
 
     </ion-list>
   </ion-content>
 </ion-menu>
+
+
 
 <ion-router-outlet id="content" main></ion-router-outlet>

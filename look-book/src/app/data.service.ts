@@ -15,12 +15,21 @@ export interface Image {
   providedIn: 'root'
 })
 export class DataService {
-  private images: Observable<Image[]>;
   private imageCollection: AngularFirestoreCollection<Image>;
+  private likeCollection: AngularFirestoreCollection<Image>;
 
   constructor(private afs: AngularFirestore) {
-    this.imageCollection = this.afs.collection<Image>('images');
-    this.images = this.imageCollection.snapshotChanges().pipe(
+    this.imageCollection = this.afs.collection<Image>('images', ref => {
+      return ref.orderBy('date', 'desc');
+    });
+
+    this.likeCollection = this.afs.collection<Image>('images', ref => {
+      return ref.orderBy('likes', 'desc');
+    });
+   }
+
+   getLikeImages() {
+     return this.likeCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -32,7 +41,15 @@ export class DataService {
    }
 
    getImages(): Observable<Image[]> {
-     return this.images;
+    return this.imageCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
    }
 
    getImage(id: string): Observable<Image> {

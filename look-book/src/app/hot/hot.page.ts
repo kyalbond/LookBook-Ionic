@@ -6,11 +6,11 @@ import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.scss'],
+  selector: 'app-hot',
+  templateUrl: './hot.page.html',
+  styleUrls: ['./hot.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class HotPage implements OnInit {
 
   public images: Observable<Image[]>;
 
@@ -38,7 +38,7 @@ export class DashboardPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.images = this.dataService.getImages();
+    this.images = this.dataService.getLikeImages();
   }
 
   takePhoto() {

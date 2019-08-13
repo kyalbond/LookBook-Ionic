@@ -17,8 +17,8 @@ const routes: Routes = [
         loadChildren: '../dashboard/dashboard.module#DashboardPageModule'
       },
       {
-        path: 'profile',
-        loadChildren: '../profile/profile.module#ProfilePageModule'
+        path: 'hot',
+        loadChildren: '../hot/hot.module#HotPageModule'
       }
     ]
   },

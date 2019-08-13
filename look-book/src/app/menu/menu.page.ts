@@ -19,6 +19,10 @@ export class MenuPage implements OnInit {
     {
       title: 'Account Settings',
       url: '/menu/settings'
+    },
+    {
+      title: 'Help',
+      url: '/menu/help'
     }
   ];
 

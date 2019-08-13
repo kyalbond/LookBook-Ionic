@@ -14,7 +14,7 @@
     <ion-row>
       <ion-col class="ion-text-center">
         <firebase-ui></firebase-ui> 
-        <ion-title *ngIf="afAuth.auth.currentUser">Welcome back {{afAuth.auth.currentUser.displayName}}</ion-title>
+        <ion-title *ngIf="afAuth.auth.currentUser">Hi {{afAuth.auth.currentUser.displayName}}!</ion-title>
       
         <ion-button *ngIf="afAuth.auth.currentUser" (click)="login()">Continue</ion-button>
       </ion-col>

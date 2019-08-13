@@ -8,9 +8,19 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <img [src]="currentImage" *ngIf="currentImage">
-    </ion-card>
+    <ion-list>
+        <ion-item *ngFor="let image of (images | async)">
+            <ion-grid>
+                <ion-row>
+                    <ion-img [src]="image.imageURL"></ion-img>
+                </ion-row>
+                <ion-row>
+                    <ion-title>{{image.name}}</ion-title>
+                </ion-row>
+
+            </ion-grid>
+        </ion-item>
+    </ion-list>
     <ion-fab (click)="takePhoto()" color="secondary" vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button>
             <ion-icon name="camera"></ion-icon>

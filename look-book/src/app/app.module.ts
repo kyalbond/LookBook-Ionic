@@ -15,7 +15,11 @@ import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+
 import { environment } from 'src/environments/environment';
+
+import { DataService } from './data.service';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -36,13 +40,15 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    DataService
   ],
   bootstrap: [AppComponent]
 })

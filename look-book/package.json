@@ -31,6 +31,7 @@
     "cordova-plugin-camera": "^4.1.0",
     "core-js": "^2.5.4",
     "firebase": "^6.3.5",
+    "firebase-admin": "^8.3.0",
     "firebaseui": "^4.1.0",
     "firebaseui-angular": "^4.0.0",
     "rxjs": "~6.5.1",

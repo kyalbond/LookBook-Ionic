@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="Primary">
+    <ion-toolbar color="primary">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
 
@@ -8,27 +8,31 @@
     </ion-toolbar>
 </ion-header>
 
-<firebase-ui></firebase-ui>
-
 <ion-content fullscreen>
 
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
 
         <ion-item>
-            <ion-label position="stacked">First Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-label position="stacked">First Name <ion-text color="danger">*</ion-text>
+            </ion-label>
             <ion-input id="firstName" required type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text>
+            </ion-label>
             <ion-input id="lastName" required type="text"></ion-input>
         </ion-item>
 
     </ion-list>
 
+
+
     <div class="ion-padding">
         <ion-button (click)="checkDetails()" expand="block" type="submit" class="ion-no-margin">Save Changes
         </ion-button>
     </div>
-
+    <div class="ion-text-center">
+        <ion-button (click)="deleteAccount()" fill="outline" color="danger">Delete Account</ion-button>
+    </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterEvent} from '@angular/router';
+import { Router, RouterEvent } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 
@@ -30,18 +30,20 @@ export class MenuPage implements OnInit {
     private router: Router,
     public afAuth: AngularFireAuth,
     private alertController: AlertController,
-    ) {
+  ) {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {
         this.selectedPath = event.url;
       }
     });
-    router.navigate(['menu/home']);
-   }
+    this.router.navigate(['/menu/home/tabs/dashboard']);
+  }
 
   ngOnInit() {
     if (this.afAuth.auth.currentUser == null) {
       this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/menu/home/tabs/dashboard']);
     }
   }
 
@@ -62,7 +64,8 @@ export class MenuPage implements OnInit {
         {
           text: 'Confirm',
           handler: () => {
-              this.router.navigate(['/login']);
+            this.afAuth.auth.signOut();
+            this.router.navigate(['/login']);
 
           }
         }

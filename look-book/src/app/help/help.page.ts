@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpPage implements OnInit {
 
+  public title = 'Open-Book!';
+  public subtitle = 'This application was created so you can upload photos of your outfits and share it with the world to inspire others.';
+  public featuresTitle = 'This application has the following features:';
+  public features = [
+    'Account Authentication',
+    'Camera Capture (Available only on mobile)',
+    'Image upload',
+    'Like Photos (by tapping)',
+    'View photos by date (latest)',
+    'View photos by popularity (Top Picks)',
+    'Change account details',
+    'Delete Account'
+  ];
+
   constructor() { }
 
   ngOnInit() {

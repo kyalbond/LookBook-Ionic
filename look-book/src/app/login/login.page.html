@@ -8,16 +8,19 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <img src="assets/img/login.png" alt="your image">
-
+        <img src="assets/img/login1.png" alt="your image">
       </ion-col>
     </ion-row>
     <ion-row>
         <ion-col class="ion-text-center">
           <ion-title *ngIf="afAuth.auth.currentUser">Hi {{afAuth.auth.currentUser.displayName}}!</ion-title>
-          <ion-button *ngIf="afAuth.auth.currentUser" (click)="login()">Continue</ion-button>
-        </ion-col>
+       </ion-col>
       </ion-row>
+      <ion-row>
+          <ion-col class="ion-text-center">
+          <ion-button *ngIf="afAuth.auth.currentUser" (click)="login()">Continue</ion-button>
+          </ion-col>
+        </ion-row>
   </ion-grid>
   <firebase-ui></firebase-ui> 
 </ion-content>

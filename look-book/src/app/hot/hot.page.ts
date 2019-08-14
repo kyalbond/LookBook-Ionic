@@ -63,22 +63,11 @@ export class HotPage implements OnInit {
     });
   }
 
-  deletemage() {
-    this.dataService.deleteIdea(this.image.id).then(() => {
-      this.showToast('Image added');
-    }, err => {
-      this.showToast('Image failed to upload');
-    });
+  likePhoto(image: Image) {
+    image.likes ++;
+    this.dataService.updateImage(image);
+    this.showToast('Photo liked!');
   }
-
-  updateImage() {
-    this.dataService.updateImage(this.image).then(() => {
-      this.showToast('Image added');
-    }, err => {
-      this.showToast('Image failed to upload');
-    });
-  }
-
   showToast(msg) {
     this.toastCtrl.create({
       message: msg,

@@ -45,7 +45,7 @@ export class DashboardPage implements OnInit {
   likePhoto(image: Image) {
     image.likes ++;
     this.dataService.updateImage(image);
-    this.showToast(image.id);
+    this.showToast('Photo liked!');
   }
 
   takePhoto() {
@@ -64,22 +64,6 @@ export class DashboardPage implements OnInit {
 
   addImage() {
     this.dataService.addImage(this.image).then(() => {
-      this.showToast('Image added');
-    }, err => {
-      this.showToast('Image failed to upload');
-    });
-  }
-
-  deletemage() {
-    this.dataService.deleteIdea(this.image.id).then(() => {
-      this.showToast('Image added');
-    }, err => {
-      this.showToast('Image failed to upload');
-    });
-  }
-
-  updateImage() {
-    this.dataService.updateImage(this.image).then(() => {
       this.showToast('Image added');
     }, err => {
       this.showToast('Image failed to upload');

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Class for displaying helpfull information to the user about the app
+ */
 @Component({
   selector: 'app-help',
   templateUrl: './help.page.html',
@@ -7,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpPage implements OnInit {
 
+  // Different information to display to the user
   public title = 'Open-Book!';
   public subtitle = 'This application was created so you can upload photos of your outfits and share it with the world to inspire others.';
   public featuresTitle = 'This application has the following features:';
@@ -23,7 +27,6 @@ export class HelpPage implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

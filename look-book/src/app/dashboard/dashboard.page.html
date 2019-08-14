@@ -8,23 +8,27 @@
 </ion-header>
 
 <ion-content>
-    <ion-progress-bar *ngIf='images === undefined' type="indeterminate"></ion-progress-bar>
-    <ion-list>
+
+   <ion-list>
         <ion-item *ngFor="let image of (images | async)">
             <ion-grid>
+
                 <ion-row>
                     <ion-img (click)="likePhoto(image)" [src]="image.imageURL">                    </ion-img>
                 </ion-row>
+
                 <ion-row>
                     <ion-title>{{image.name}} - {{image.likes}} votes</ion-title>
                 </ion-row>
-
+                
             </ion-grid>
         </ion-item>
     </ion-list>
+
     <ion-fab (click)="takePhoto()" color="secondary" vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button>
             <ion-icon name="camera"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+
 </ion-content>
